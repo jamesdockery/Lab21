@@ -43,7 +43,7 @@ namespace CoffeeShop.Controllers
 
         [HttpPost]
         // This method is posting Registation to the Server
-        public ActionResult Registration(User user)
+        public IActionResult Registration(User user)
         {
             if (ModelState.IsValid)
             {
@@ -53,6 +53,7 @@ namespace CoffeeShop.Controllers
 
                 ModelState.Clear();
                 ViewBag.Message = "Welcome " + user.FirstName + " " + user.LastName;
+
             }
             return View();
         }
@@ -75,7 +76,7 @@ namespace CoffeeShop.Controllers
             
             return View();
         }
-
+        
         public ActionResult Welcome()
         {
             if(HttpContext.Session.GetString("UserID") != null)
